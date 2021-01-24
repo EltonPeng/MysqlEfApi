@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using mysqlEfApi.Models;
+using mysqlEfApi.Services;
 
 namespace mysqlEfApi.Controllers
 {
@@ -8,10 +9,17 @@ namespace mysqlEfApi.Controllers
     [Route("[controller]")]
     public class HistoryController : ControllerBase
     {
+        private IHistoryService historyService;
+
+        public HistoryController(IHistoryService service)
+        {
+            historyService = service;
+        }
+
         [HttpGet]
         public IEnumerable<HistoryRecord> Get()
         {
-            return new List<HistoryRecord> { new HistoryRecord { UserId = "1" } };
+            return historyService.GetAll();
         }
     }
 }
