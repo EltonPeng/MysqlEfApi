@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  coreApi:
+    image: mysql-webapi:latest
+    container_name: dotnetApi
+    ports:
+      - "8080:80"
