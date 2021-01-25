@@ -1,6 +1,21 @@
 version: '3.7'
 services:
+  mysql-local:
+   image: mysql:latest
+   container_name: mysql
+   restart: always
+   environment:
+    - MYSQL_DATABASE=test
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_USER=dev
+    - MYSQL_PASSWORD=dev
+   ports:
+    - "3306:3306"
+   volumes:
+    - "./data/db/mysql:/var/lib/mysql"
   coreApi:
+    depends_on: 
+      - mysql-local
     image: mysql-webapi:latest
     container_name: dotnetApi
     ports:

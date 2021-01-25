@@ -9,7 +9,7 @@ namespace mysqlEfApi
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=mysql-local;database=test;user=dev;password=dev");
+            optionsBuilder.UseMySQL("host=mysql-local;port=3306;database=test;user=dev;password=dev");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
