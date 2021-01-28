@@ -20,6 +20,12 @@ namespace mysqlEfApi
             {
                 entity.HasKey(e => e.UserId);
             });
+
+            modelBuilder.Entity<RecordLine>(entity => {
+                entity.HasKey(e => e.Index);
+                entity.Property(e => e.Token).HasMaxLength(20);
+                entity.Property(e => e.Finished).IsRequired(true);
+            });
         }
     }
 }

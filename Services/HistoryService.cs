@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using mysqlEfApi.Models;
 
 namespace mysqlEfApi.Services
@@ -21,7 +22,7 @@ namespace mysqlEfApi.Services
 
         public IEnumerable<HistoryRecord> GetAll()
         {
-            return context.History;
+            return context.History.Include(h => h.Line);
         }
     }
 }

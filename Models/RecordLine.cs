@@ -11,6 +11,5 @@ namespace mysqlEfApi.Models
         public string Token { get; set; }
         public int Index { get; set; }
         public bool Finished { get; set; }
-        public List<int> StuffIds { get; set; }
     }
 }

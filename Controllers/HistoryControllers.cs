@@ -21,5 +21,18 @@ namespace mysqlEfApi.Controllers
         {
             return historyService.GetAll();
         }
+
+        [HttpPost]
+        public IActionResult AddItem([FromBody] HistoryRecord record)
+        {
+            if(record == null)
+            {
+                return BadRequest();
+            }
+
+            historyService.AddRecord(record);
+
+            return new OkResult();
+        }
     }
 }
